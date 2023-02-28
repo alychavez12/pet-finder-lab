@@ -4,6 +4,7 @@
 ////////////////////////////////
 const mongoose = require('mongoose');
 const express = require('express');
+
 // create application object
 const app = express();
 
@@ -22,6 +23,7 @@ mongoose.connection
   .on('open', () => console.log('You are connected to MongoDB'))
   .on('close', () => console.log('You are disconnected from MongoDB'))
   .on('error', (error) => console.log(`MongoDB Error: ${error.message}`));
+  const petFinderRoutes = require('./routes/petFinderRoutes');
 
 ///////////////////////////////
 // Models

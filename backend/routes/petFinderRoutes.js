@@ -21,9 +21,7 @@ router.get("/", async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-      res.status(200).json(
-        await PetFinder.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      );
+      res.status(200).json(await PetFinder.findByIdAndUpdate(req.params.id, req.body, { new: true }));
     } catch (error) {
       res.status(400).json({ message: "something went wrong" });
     }

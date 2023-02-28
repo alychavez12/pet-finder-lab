@@ -11,4 +11,4 @@ const PetSchema = new mongoose.Schema({
 	sex: String
 })
 
-module.exports = mongoose.model("PetFinder", PetSchema);
+module.exports = mongoose.model("petFinder", PetSchema);
