@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
     }
   });
 
+  //create
   router.post('/', async (req, res) => {
     try {
       res.status(201).json(await PetFinder.create(req.body));
@@ -18,7 +19,16 @@ router.get("/", async (req, res) => {
     }
   });
 
-
+//delete
+  router.delete('/:id', async (req, res) => {
+    try {
+      res.status(200).json(await PetFinder.findByIdAndDelete(req.params.id));
+    } catch (error) {
+      res.status(400).json({ message: "something went wrong" });
+    }
+  });
+  
+//show
 router.get('/:id', async (req, res) => {
     try {
       res.status(200).json(await PetFinder.findByIdAndUpdate(req.params.id, req.body, { new: true }));
@@ -26,5 +36,17 @@ router.get('/:id', async (req, res) => {
       res.status(400).json({ message: "something went wrong" });
     }
   });
+
+  //update
+  router.put('/:id', async (req, res) => {
+    try {
+      res.status(200).json(
+        await PetFinder.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      );
+    } catch (error) {
+      res.status(400).json({ message: "something went wrong" });
+    }
+  });
+  
 
   module.exports = router;
